@@ -1,0 +1,31 @@
+
+.app-card {
+  width: 100%;
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+.app-card-small {
+  padding: 16px;
+}
+
+.app-card-medium {
+  padding: 22px;
+}
+
+.app-card-large {
+  padding: 30px;
+}
+
+@media (max-width: 640px) {
+  .app-card-medium {
+    padding: 18px;
+  }
+
+  .app-card-large {
+    padding: 22px;
+  }
+}
