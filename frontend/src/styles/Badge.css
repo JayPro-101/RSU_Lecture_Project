@@ -1,0 +1,60 @@
+
+.app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  border-radius: 100px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.app-badge--small {
+  min-height: 22px;
+  padding: 2px 8px;
+  font-size: 10px;
+}
+
+.app-badge--medium {
+  min-height: 27px;
+  padding: 4px 10px;
+  font-size: 11px;
+}
+
+.app-badge--default {
+  color: #526079;
+  background: #edf0f5;
+}
+
+.app-badge--success {
+  color: #13784e;
+  background: #e5f7ef;
+}
+
+.app-badge--warning {
+  color: #94620c;
+  background: #fff5dc;
+}
+
+.app-badge--danger {
+  color: #b83232;
+  background: #ffeded;
+}
+
+.app-badge--info {
+  color: #3153a7;
+  background: #eaf0ff;
+}
+
+.app-badge--purple {
+  color: #7041a5;
+  background: #f2eaff;
+}
+
+.app-badge__dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  background: currentColor;
+  border-radius: 50%;
+}
