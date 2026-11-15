@@ -1,76 +1,62 @@
 
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
-import './styles/App.css';
 
-function App() {
+import { AuthProvider } from './services/auth-context';
+import ProtectedRoute from './components/ProtectedRoute';
+import DashboardLayout from './layouts/DashboardLayout';
+
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import VerifyEmailPage from './pages/VerifyEmailPage';
+import ResendVerificationPage from './pages/ResendVerificationPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
+import DashboardPage from './pages/DashboardPage';
+
+const NotFoundPage = () => (
+  <div className="not-found-page">
+    <h1>404</h1>
+    <h2>Page not found</h2>
+    <p>The page you're looking for doesn't exist.</p>
+    <a href="/login">Return to sign in</a>
+  </div>
+);
+
+const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" replace />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          {/* Public routes */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/verify-email" element={<VerifyEmailPage />} />
+          <Route
+            path="/resend-verification"
+            element={<ResendVerificationPage />}
+          />
+          <Route
+            path="/forgot-password"
+            element={<ForgotPasswordPage />}
+          />
+          <Route
+            path="/reset-password"
+            element={<ResetPasswordPage />}
+          />
+
+          {/* Protected application routes */}
+          <Route element={<ProtectedRoute />}>
+            <Route element={<DashboardLayout />}>
+              <Route path="/dashboard" element={<DashboardPage />} />
+            </Route>
+          </Route>
+
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
-}
-
-function LoginPage() {
-  return (
-    <main className="app-shell">
-      <section className="login-panel">
-        <div className="brand-mark">RSU</div>
-
-        <p className="eyebrow">RIVERS STATE UNIVERSITY</p>
-
-        <h1>Stay informed.<br />Stay on schedule.</h1>
-
-        <p className="login-description">
-          Your central platform for lecture schedules, venue updates
-          and important academic announcements.
-        </p>
-
-        <div className="login-card">
-          <h2>Welcome to RSU Lecture Portal</h2>
-          <p>Sign in to access your academic information.</p>
-
-          <form>
-            <label htmlFor="email">University email</label>
-            <input
-              id="email"
-              type="email"
-              placeholder="Enter your university email"
-              autoComplete="email"
-            />
-
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              placeholder="Enter your password"
-              autoComplete="current-password"
-            />
-
-            <button type="button" disabled>
-              Sign-in integration coming soon
-            </button>
-          </form>
-        </div>
-
-        <footer>
-          © {new Date().getFullYear()} Rivers State University
-        </footer>
-      </section>
-    </main>
-  );
-}
-
-function NotFoundPage() {
-  return (
-    <main className="not-found">
-      <h1>404</h1>
-      <p>The page you're looking for doesn't exist.</p>
-    </main>
-  );
-}
+};
 
 export default App;
