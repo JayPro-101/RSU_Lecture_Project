@@ -1,0 +1,160 @@
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 100;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-right: 1px solid #e9ecf3;
+  transition: transform 0.25s ease;
+}
+
+.sidebar__brand {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 22px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.sidebar__logo {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  background: #344b96;
+  border-radius: 12px;
+}
+
+.sidebar__brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sidebar__brand-text strong {
+  color: #182033;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.sidebar__brand-text span {
+  color: #8791a3;
+  font-size: 10px;
+}
+
+.sidebar__close {
+  display: none;
+  margin-left: auto;
+  padding: 5px;
+  color: #69748a;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar__navigation {
+  flex: 1;
+  padding: 26px 14px;
+  overflow-y: auto;
+}
+
+.sidebar__section-label {
+  margin: 0 10px 13px;
+  color: #a1a9b8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.sidebar__section-label--bottom {
+  margin-top: 32px;
+}
+
+.sidebar__link {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 5px;
+  padding: 0 13px;
+  color: #6e7a90;
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar__link:hover {
+  color: #344b96;
+  background: #f3f5fb;
+}
+
+.sidebar__link--active {
+  color: #344b96;
+  background: #edf0fb;
+  font-weight: 800;
+}
+
+.sidebar__link--active svg {
+  stroke-width: 2.4;
+}
+
+.sidebar__footer {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 23px;
+  color: #8b95a8;
+  border-top: 1px solid #edf0f5;
+  font-size: 11px;
+}
+
+.sidebar__footer-dot {
+  width: 8px;
+  height: 8px;
+  background: #16a36a;
+  border-radius: 50%;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar--open {
+    transform: translateX(0);
+  }
+
+  .sidebar__close {
+    display: flex;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    display: block;
+    background: rgba(15, 23, 42, 0.45);
+    border: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar {
+    transition: none;
+  }
+}
