@@ -1,0 +1,88 @@
+
+.unauthorized-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #f7f8fc;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.unauthorized-card {
+  width: 100%;
+  max-width: 480px;
+  padding: 44px 36px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e8eaf0;
+  border-radius: 20px;
+  box-shadow: 0 16px 50px rgba(25, 35, 60, 0.07);
+}
+
+.unauthorized-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc4b4b;
+  background: #fff0f0;
+  border-radius: 20px;
+}
+
+.unauthorized-label {
+  margin: 0 0 12px;
+  color: #dc4b4b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.unauthorized-card h1 {
+  margin: 0;
+  color: #182033;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 25px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.unauthorized-description {
+  margin: 16px 0 28px;
+  color: #737d91;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.unauthorized-button {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 20px;
+  color: #ffffff;
+  background: #263b80;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.unauthorized-button:hover {
+  background: #1b2d68;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .unauthorized-card {
+    padding: 36px 22px;
+  }
+
+  .unauthorized-card h1 {
+    font-size: 22px;
+  }
+}
